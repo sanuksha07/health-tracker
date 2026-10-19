@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>Health Tracker</title>
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#1c7a6b"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAADDElEQVR42u3d3VEqQRCAUbEMAyPECPDZDMzQRHyjLAFZB+anu895vXWZgvnoXWDB3f54eIJWzx4CBISAEBACAgEhIASEgEBACAgBISAQEAJCQAgIBISAEBACQkAgIASEgBAQCAgBISAEBAJCQAgIAYGAEBACQkAICASEgBAQAgIBISAEhIBAQAgIASEgEBACQkAICF4S37evj89r//T6/hZ9uUXs9sdDnW56bO3g5QS0Sjr37+vg5QS0Yjpt+zp4OSfRAerZfjuDlzOBAqSzcTYMXs4EClnPtVsevJyAotZz8fYHLycgqggZ0Jjn62mVwcs5ifZAFzqhdgijUkC5x0/EO2gCUSag9OMn4t00gRAQAnL8CnpnTSAEhIAQEAICASEgBISAlpL4y52h76wJtCLvRGMCeVgxgYyf3lxUf2MXB5+OuKjeDHAIs7uTlosYbsgJ1PWBnrWLQceeQxglA+r0fP157nw6fR4wG+KedQWeQGlOdUPfkQw/cfeoV9oXX7r3fj0f/WngHIjyAT3kSTzlncMER+E8P/N7beP/u0nnt3OzrZtLXPyPfqU1oYbxU/xt6zwBDf7N+TsXTZNdtj910Pu10q/bbztzyjS0sh3Cpnx0VfnPZTgHQkD9n+LnH2sYP5kn0Jr7lPL1mkNYyxCadb2igOo+3bO+XZR5AvXes+3jJ/GbjQ5hXYpxCDOEjJ9NEv7R3aUmR/pPykocwlwnLyAEVGwIFbnMo9AE8hVBASGgAkOo1DWK5SZQ792tdoWrQxgCWmZIFLzAvugE6rHTNb+e4RCGgBYYGGW/HVZ6Aj1q1yt/t7D6Iez+vffNVBDQpBHi91wF1N6BegSEgCYNIeNHQO1NqEdACGjSEDJ+BNTeh3oE1N6QegSEgCYNIeNHQO0NqUdACGjSEDJ+/lDi1zkwgRAQAgIBISAEhIBAQAgIASEgBAQCQkAICAGBgBAQAkJAICAEhIAQEAgIASEgBISAQEAICAEhIBAQAkJACAgEhIAQEAICASEgBISAEBAICAEhIAQEAmKYb5wU8DtTaNc7AAAAAElFTkSuQmCC"><link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAADDElEQVR42u3d3VEqQRCAUbEMAyPECPDZDMzQRHyjLAFZB+anu895vXWZgvnoXWDB3f54eIJWzx4CBISAEBACAgEhIASEgEBACAgBISAQEAJCQAgIBISAEBACQkAgIASEgBAQCAgBISAEBAJCQAgIAYGAEBACQkAICASEgBAQAgIBISAEhIBAQAgIASEgEBACQkAICF4S37evj89r//T6/hZ9uUXs9sdDnW56bO3g5QS0Sjr37+vg5QS0Yjpt+zp4OSfRAerZfjuDlzOBAqSzcTYMXs4EClnPtVsevJyAotZz8fYHLycgqggZ0Jjn62mVwcs5ifZAFzqhdgijUkC5x0/EO2gCUSag9OMn4t00gRAQAnL8CnpnTSAEhIAQEAICASEgBISAlpL4y52h76wJtCLvRGMCeVgxgYyf3lxUf2MXB5+OuKjeDHAIs7uTlosYbsgJ1PWBnrWLQceeQxglA+r0fP157nw6fR4wG+KedQWeQGlOdUPfkQw/cfeoV9oXX7r3fj0f/WngHIjyAT3kSTzlncMER+E8P/N7beP/u0nnt3OzrZtLXPyPfqU1oYbxU/xt6zwBDf7N+TsXTZNdtj910Pu10q/bbztzyjS0sh3Cpnx0VfnPZTgHQkD9n+LnH2sYP5kn0Jr7lPL1mkNYyxCadb2igOo+3bO+XZR5AvXes+3jJ/GbjQ5hXYpxCDOEjJ9NEv7R3aUmR/pPykocwlwnLyAEVGwIFbnMo9AE8hVBASGgAkOo1DWK5SZQ792tdoWrQxgCWmZIFLzAvugE6rHTNb+e4RCGgBYYGGW/HVZ6Aj1q1yt/t7D6Iez+vffNVBDQpBHi91wF1N6BegSEgCYNIeNHQO1NqEdACGjSEDJ+BNTeh3oE1N6QegSEgCYNIeNHQO0NqUdACGjSEDJ+/lDi1zkwgRAQAgIBISAEhIBAQAgIASEgBAQCQkAICAGBgBAQAkJAICAEhIAQEAgIASEgBISAQEAICAEhIBAQAkJACAgEhIAQEAICASEgBISAEBAICAEhIAQEAmKYb5wU8DtTaNc7AAAAAElFTkSuQmCC">
+<style>
+:root{--bg:#f2f5f4;--panel:#fff;--ink:#1c2a27;--muted:#5d6e69;--line:#d9e3df;--accent:#1c7a6b;--on:#fff;--soft:#e1f2ee;--red:#d64545;--yel:#e6c02e;--ora:#ee8a2f;--grn:#2f9e63;--warn:#fff1cf}
+@media(prefers-color-scheme:dark){:root{--bg:#111917;--panel:#1b2623;--ink:#eaf3f0;--muted:#a5b6b0;--line:#33433e;--accent:#6fd4c0;--on:#0e1f1b;--soft:#23403a;--red:#e86a6a;--yel:#d9b63a;--ora:#f0974a;--grn:#4cc088;--warn:#43391f}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:720px;margin:auto;padding:0 14px}
+header{background:var(--panel);border-bottom:1px solid var(--line);padding:16px 0}h1{font-size:clamp(22px,5vw,28px);margin:0;line-height:1.2}
+h2{font-size:17px;margin:0 0 8px}.small{color:var(--muted);font-size:14px;margin:4px 0 0}
+.nav{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;gap:6px;padding:10px 14px;max-width:720px;margin:auto}
+button{font:600 14px system-ui,sans-serif;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:10px;padding:9px 13px;cursor:pointer}
+.nav button{flex:1}button:hover{border-color:var(--accent)}button.on,button.primary{background:var(--accent);border-color:var(--accent);color:var(--on)}
+button.ghost{border-color:transparent;background:none;color:var(--muted)}button.x{border:0;background:none;color:var(--red);font-size:20px;padding:2px 8px;line-height:1}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px;margin:0 0 12px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}.between{justify-content:space-between;align-items:center}
+.field{flex:1 1 130px;margin-top:8px}label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin:0 0 4px}
+input[type=time],input[type=date],input[type=month],input[type=number],input[type=text],select,textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink);font:inherit}
+textarea{min-height:70px;resize:vertical}
+label.chk{display:flex;gap:10px;align-items:center;font-size:16px;font-weight:500;color:var(--ink);margin:12px 0 0;cursor:pointer}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent);flex:none}
+.pill{display:inline-block;padding:3px 11px;border-radius:99px;font-size:13px;font-weight:700;background:var(--line);color:var(--ink);margin:10px 8px 0 0}.pill:empty{display:none}
+.c-red{background:var(--red);color:#fff}.c-yel{background:var(--yel);color:#2b2400}.c-ora{background:var(--ora);color:#2b1700}.c-grn{background:var(--grn);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.chips button.on{background:var(--soft);color:var(--ink);border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.sg div{background:var(--bg);border-radius:10px;padding:9px 4px;text-align:center}.sg b{display:block;font-size:17px}.sg span{font-size:11px;color:var(--muted)}
+.wk,.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.wk{text-align:center;font-size:12px;color:var(--muted);margin-top:12px}
+.cd{min-height:44px;padding:4px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font-size:14px}.cd.c-red,.cd.c-grn{color:#fff}.cd.c-yel{color:#2b2400}.cd.c-ora{color:#2b1700}
+.item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.item:last-child{border:0}
+.hint{background:var(--warn);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0 0}.hidden{display:none!important}
+.foot{text-align:center;color:var(--muted);font-size:12px;padding:12px 14px 40px}
+#toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:11px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:9}#toast.show{opacity:1}
+svg{width:100%;height:auto;margin-top:8px}
+</style></head><body>
+<header><div class="wrap"><h1>Health Tracker</h1><p class="small">Sleep, food, exercise and more. Everything stays on your device.</p></div></header>
+<div class="wrap"><div class="hint hidden" id="warn">⚠ <b>Not saving.</b> This browser blocks saving for files opened from Downloads. Open the web link instead, or tap <b>Download backup</b> in Settings after each session.</div></div>
+<div class="nav"><button data-act="tab" data-t="log" class="on">Log</button><button data-act="tab" data-t="month">Month</button><button data-act="tab" data-t="set">Settings</button></div>
+<main class="wrap">
+<section id="v-log">
+<div class="panel"><div class="row between"><button data-act="dd" data-n="-1" aria-label="Previous day">‹</button><input type="date" id="dateIn" style="flex:1;max-width:210px" aria-label="Date"><button data-act="dd" data-n="1" aria-label="Next day">›</button><button data-act="dd" data-n="0">Today</button></div></div>
+<div id="logBody"></div></section>
+<section id="v-month" class="hidden">
+<div class="panel"><div class="row between"><button data-act="mm" data-n="-1" aria-label="Previous month">‹</button><input type="month" id="monIn" style="flex:1;max-width:210px" aria-label="Month"><button data-act="mm" data-n="1" aria-label="Next month">›</button></div><div class="sg" id="stats"></div></div>
+<div class="panel"><div class="row between"><h2 style="margin:0">Colour calendar</h2><select id="metric" style="width:auto" aria-label="Show"><option value="cal">Calories</option><option value="pro">Protein</option><option value="sleep">Sleep</option><option value="ex">Exercise</option><option value="sun">Sunlight</option></select></div>
+<div class="wk"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div><div class="cal" id="cal"></div><p class="small">Tap a day to edit it. Colours follow your targets in Settings.</p></div>
+<div class="panel hidden" id="wBox"><h2>Weight over time</h2><div id="wChart"></div></div></section>
+<section id="v-set" class="hidden"><div id="setBody"></div></section>
+</main>
+<div class="foot"><span id="ver"></span></div><div id="toast" role="status"></div>
+<input type="file" id="file" accept=".json,application/json" class="hidden">
+<script>
+const KEY='health-tracker-v1',$=id=>document.getElementById(id);
+const pad=n=>String(n).padStart(2,'0'),iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()),today=()=>iso(new Date());
+const parse=s=>{const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)};
+const addDays=(s,n)=>{const d=parse(s);d.setDate(d.getDate()+n);return iso(d)};
+const fmt=s=>parse(s).toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',year:'numeric'});
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const DEF={v:1,cfg:{sleep:1,variety:1,exercise:1,sun:1,weight:1,supp:0,cal:[1400,1600,1700],pro:[14,16,18],sleepT:7,ex:[{id:'Y',n:'Yoga'},{id:'W',n:'Workout'},{id:'S',n:'Skipping'},{id:'D',n:'Dancing'}]},supps:[],days:{},nid:1};
+const PRESETS=['Vitamin B12','Calcium','Zinc','Iron','K-Phos-Mag','Vitamin A','Folic acid','Vitamin D'];
+let S=JSON.parse(JSON.stringify(DEF)),tab='log',date=today(),mon=today().slice(0,7),STORE_OK=true,tt;
+try{localStorage.setItem('__t','1');localStorage.removeItem('__t')}catch(e){STORE_OK=false}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){STORE_OK=false;try{window.name='HT1'+JSON.stringify(S)}catch(e2){}}}
+function load(){try{const x=JSON.parse(STORE_OK?localStorage.getItem(KEY):(window.name.startsWith('HT1')?window.name.slice(3):null));if(x&&x.days)S={...DEF,...x,cfg:{...DEF.cfg,...(x.cfg||{})}}}catch(e){}}
+function toast(t){clearTimeout(tt);const e=$('toast');e.textContent=t;e.classList.add('show');tt=setTimeout(()=>e.classList.remove('show'),2400)}
+
+const mins=s=>{const m=/^(\d{1,2}):(\d{2})$/.exec(s||'');return m?+m[1]*60+ +m[2]:null};
+const sleepH=d=>{const a=mins(d.slept),b=mins(d.woke);return a==null||b==null?null:((b-a+1440)%1440)/60};
+const band=(v,t)=>v==null?'':v<t[0]?'red':v<t[1]?'yel':v<t[2]?'ora':'grn';
+const sleepBand=h=>h==null?'':h>=S.cfg.sleepT?'grn':'ora';
+const h1=v=>String(+(+v).toFixed(1));
+const dayOf=k=>S.days[k]||{};
+
+function renderLog(){const d=dayOf(date),c=S.cfg;$('dateIn').value=date;let h='';
+if(c.sleep)h+=`<section class="panel"><h2>Sleep</h2><div class="row"><div class="field"><label for="f1">Slept at</label><input type="time" id="f1" data-f="slept" value="${esc(d.slept)}"></div><div class="field"><label for="f2">Woke up</label><input type="time" id="f2" data-f="woke" value="${esc(d.woke)}"></div></div><span class="pill" id="cSleep"></span></section>`;
+h+=`<section class="panel"><h2>Food</h2><div class="row"><div class="field"><label for="f3">Calories</label><input type="number" id="f3" inputmode="numeric" min="0" data-f="cal" value="${d.cal??''}"></div><div class="field"><label for="f4">Protein %</label><input type="number" id="f4" inputmode="decimal" min="0" max="100" step="0.1" data-f="pro" value="${d.pro??''}"></div></div><span class="pill" id="cCal"></span><span class="pill" id="cPro"></span>${c.variety?`<label class="chk"><input type="checkbox" data-f="variety" ${d.variety?'checked':''}> Variety of foods today</label>`:''}<div class="field"><label for="f5">What did you eat? (optional)</label><textarea id="f5" data-f="food">${esc(d.food)}</textarea></div></section>`;
+if(c.exercise)h+=`<section class="panel"><h2>Exercise</h2><div class="chips">${c.ex.map(e=>`<button data-act="ex" data-id="${esc(e.id)}" class="${(d.ex||[]).includes(e.id)?'on':''}">${esc(e.n)}</button>`).join('')||'<span class="small">Add exercise types in Settings.</span>'}</div></section>`;
+if(c.sun)h+=`<section class="panel"><h2>Sunlight</h2><div class="chips"><button data-act="sun" data-v="1" class="${d.sun===1?'on':''}">✔ Got sunlight</button><button data-act="sun" data-v="0" class="${d.sun===0?'on':''}">✘ No sunlight</button></div></section>`;
+if(c.weight)h+=`<section class="panel"><h2>Weight</h2><div class="field" style="max-width:200px"><label for="f6">Weight (kg), whenever you weigh in</label><input type="number" id="f6" inputmode="decimal" step="0.1" min="0" data-f="wt" value="${d.wt??''}"></div></section>`;
+if(c.supp)h+=`<section class="panel"><h2>Supplements</h2>${S.supps.length?S.supps.map(s=>`<label class="chk"><input type="checkbox" data-sup="${s.id}" ${(d.sup||[]).includes(s.id)?'checked':''}> ${esc(s.name)}</label>`).join(''):'<p class="small">None added yet. Add them in Settings.</p>'}</section>`;
+h+=`<section class="panel"><label for="f7">Notes (optional)</label><textarea id="f7" data-f="notes">${esc(d.notes)}</textarea></section>`;
+$('logBody').innerHTML=h;chips()}
+function chips(){const d=dayOf(date),set=(id,v,cls)=>{const e=$(id);if(e){e.textContent=v;e.className='pill'+(cls?' c-'+cls:'')}};
+const sh=sleepH(d);set('cSleep',sh==null?'':h1(sh)+' h sleep',sleepBand(sh));set('cCal',d.cal==null?'':d.cal+' kcal',band(d.cal,S.cfg.cal));set('cPro',d.pro==null?'':d.pro+'% protein',band(d.pro,S.cfg.pro))}
+function setDay(f,val){const d=S.days[date]=S.days[date]||{};if(val===''||val==null||val===false||(Array.isArray(val)&&!val.length)||(typeof val==='number'&&isNaN(val)))delete d[f];else d[f]=val;if(!Object.keys(d).length)delete S.days[date];persist()}
+
+function renderMonth(){$('monIn').value=mon;const[y,m]=mon.split('-').map(Number),n=new Date(y,m,0).getDate(),first=new Date(y,m-1,1).getDay(),ks=Array.from({length:n},(_,i)=>mon+'-'+pad(i+1)),ds=ks.map(dayOf);
+const avg=a=>a.length?a.reduce((x,z)=>x+z,0)/a.length:null,f=(v,u)=>v==null?'–':h1(v)+u;
+const sl=ds.map(sleepH).filter(v=>v!=null),cl=ds.map(d=>d.cal).filter(v=>v!=null),pr=ds.map(d=>d.pro).filter(v=>v!=null);
+const ws=Object.keys(S.days).filter(k=>S.days[k].wt!=null).sort(),inM=ws.filter(k=>k.startsWith(mon)),li=inM.length?ws.indexOf(inM[inM.length-1]):-1;
+let wt='–';if(li>=0){const w=S.days[ws[li]].wt,p=li>0?S.days[ws[li-1]].wt:null;wt=h1(w)+' kg'+(p!=null?' ('+(w-p>=0?'+':'−')+h1(Math.abs(w-p))+')':'')}
+const st=[[f(avg(sl),' h'),'Avg sleep'],[cl.length?Math.round(avg(cl)):'–','Avg calories'],[f(avg(pr),'%'),'Avg protein'],[ds.filter(d=>Object.keys(d).length).length+' / '+n,'Days logged'],[ds.filter(d=>(d.ex||[]).length).length,'Exercise days'],[ds.filter(d=>d.sun===1).length,'Sunlight days']];
+if(S.cfg.weight)st.push([wt,'Latest weight']);
+if(S.cfg.supp)S.supps.forEach(s=>st.push([ds.filter(d=>(d.sup||[]).includes(s.id)).length,s.name+' days']));
+$('stats').innerHTML=st.map(x=>`<div><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('');
+const mt=$('metric').value,cls=d=>mt==='cal'?band(d.cal,S.cfg.cal):mt==='pro'?band(d.pro,S.cfg.pro):mt==='sleep'?sleepBand(sleepH(d)):mt==='ex'?((d.ex||[]).length?'grn':''):d.sun===1?'grn':d.sun===0?'red':'';
+$('cal').innerHTML='<div></div>'.repeat(first)+ks.map((k,i)=>`<button class="cd ${cls(ds[i])?'c-'+cls(ds[i]):''}" data-act="go" data-d="${k}" aria-label="${fmt(k)}">${i+1}</button>`).join('');
+const pts=S.cfg.weight?ws.map(k=>[k,S.days[k].wt]):[];$('wBox').classList.toggle('hidden',pts.length<2);
+if(pts.length>=2){const t0=parse(pts[0][0]).getTime(),t1=parse(pts[pts.length-1][0]).getTime()||1,lo=Math.min(...pts.map(p=>p[1])),hi=Math.max(...pts.map(p=>p[1])),X=k=>10+(parse(k).getTime()-t0)/Math.max(1,t1-t0)*280,Y=v=>85-(v-lo)/Math.max(.1,hi-lo)*65;
+$('wChart').innerHTML=`<svg viewBox="0 0 300 100" role="img" aria-label="Weight over time"><polyline fill="none" stroke="var(--accent)" stroke-width="2.5" points="${pts.map(p=>X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)).join(' ')}"/>${pts.map(p=>`<circle cx="${X(p[0]).toFixed(1)}" cy="${Y(p[1]).toFixed(1)}" r="3.5" fill="var(--accent)"/>`).join('')}<text x="10" y="12" font-size="9" fill="var(--muted)">${h1(hi)} kg</text><text x="10" y="98" font-size="9" fill="var(--muted)">${h1(lo)} kg</text></svg><p class="small">${fmt(pts[0][0])} to ${fmt(pts[pts.length-1][0])}</p>`}}
+
+function renderSet(){const c=S.cfg,tg=(k,l)=>`<label class="chk"><input type="checkbox" data-cfg="${k}" ${c[k]?'checked':''}> ${l}</label>`,th=(k,i,l)=>`<div class="field"><label>${l}</label><input type="number" data-th="${k}.${i}" value="${c[k][i]}" step="any"></div>`;
+let h=`<section class="panel"><h2>What to track</h2><p class="small">Food (calories and protein) is always on. Turn on only what you want.</p>${tg('sleep','Sleep')}${tg('variety','“Variety of foods” check')}${tg('exercise','Exercise')}${tg('sun','Sunlight')}${tg('weight','Weight')}${tg('supp','Supplements <span class="small">(optional)</span>')}</section>`;
+if(c.supp)h+=`<section class="panel"><h2>Supplements</h2>${S.supps.map(s=>`<div class="item"><span>${esc(s.name)}</span><button class="x" data-act="delsup" data-id="${s.id}" aria-label="Remove ${esc(s.name)}">×</button></div>`).join('')||'<p class="small">None yet. Tap one below or type your own.</p>'}<div class="chips">${PRESETS.filter(p=>!S.supps.some(s=>s.name===p)).map(p=>`<button data-act="addsup" data-n="${esc(p)}">+ ${esc(p)}</button>`).join('')}</div><div class="row"><div class="field"><label for="supN">Your own</label><input type="text" id="supN" maxlength="40" placeholder="e.g. Omega-3"></div><button data-act="addsup" data-n="">Add</button></div></section>`;
+h+=`<section class="panel"><h2>Targets</h2><p class="small">Below the first number is red, then yellow, orange, and green from the third number up.</p><p class="small" style="margin-top:10px"><b>Calories</b></p><div class="row">${th('cal',0,'Yellow from')}${th('cal',1,'Orange from')}${th('cal',2,'Green from')}</div><p class="small" style="margin-top:10px"><b>Protein %</b></p><div class="row">${th('pro',0,'Yellow from')}${th('pro',1,'Orange from')}${th('pro',2,'Green from')}</div><div class="field" style="max-width:200px"><label>Sleep target (hours)</label><input type="number" data-cfg="sleepT" value="${c.sleepT}" step="0.5" min="0" max="24"></div></section>`;
+if(c.exercise)h+=`<section class="panel"><h2>Exercise types</h2>${c.ex.map(e=>`<div class="item"><span>${esc(e.n)}</span><button class="x" data-act="delex" data-id="${esc(e.id)}" aria-label="Remove ${esc(e.n)}">×</button></div>`).join('')}<div class="row"><div class="field"><label for="exN">Add a type</label><input type="text" id="exN" maxlength="30" placeholder="e.g. Walking"></div><button data-act="addex">Add</button></div></section>`;
+h+=`<section class="panel"><h2>Backup</h2><p class="small">Download a backup now and then. Restore it on a new phone or browser.</p><div class="row" style="margin-top:10px"><button class="primary" data-act="export">Download backup</button><button data-act="import">Restore backup</button><button class="ghost" data-act="reset" style="color:var(--red)">Reset everything</button></div></section>`;
+$('setBody').innerHTML=h}
+
+function show(t){tab=t;document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));['log','month','set'].forEach(x=>$('v-'+x).classList.toggle('hidden',x!==t));draw();window.scrollTo(0,0)}
+function draw(){$('warn').classList.toggle('hidden',STORE_OK);$('ver').textContent='Health Tracker v1 · '+(STORE_OK?'saving to this browser ✓':'⚠ not saving');if(tab==='log')renderLog();if(tab==='month')renderMonth();if(tab==='set')renderSet()}
+
+document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act,c=S.cfg;
+if(a==='tab')show(b.dataset.t);
+else if(a==='dd'){const n=+b.dataset.n;date=n?addDays(date,n):today();renderLog()}
+else if(a==='mm'){const d=new Date(+mon.slice(0,4),+mon.slice(5)-1+ +b.dataset.n,1);mon=iso(d).slice(0,7);renderMonth()}
+else if(a==='go'){date=b.dataset.d;show('log')}
+else if(a==='ex'){const d=dayOf(date),l=(d.ex||[]).slice(),i=l.indexOf(b.dataset.id);i<0?l.push(b.dataset.id):l.splice(i,1);setDay('ex',l);renderLog()}
+else if(a==='sun'){const v=+b.dataset.v;setDay('sun',dayOf(date).sun===v?null:v);renderLog()}
+else if(a==='addsup'){const n=(b.dataset.n||$('supN').value).trim();if(!n)return;if(S.supps.some(s=>s.name.toLowerCase()===n.toLowerCase())){toast('Already added');return}S.supps.push({id:S.nid++,name:n});persist();renderSet()}
+else if(a==='delsup'){const id=+b.dataset.id;if(confirm('Remove this supplement? Past ticks stay in your backup but stop showing.')){S.supps=S.supps.filter(s=>s.id!==id);persist();renderSet()}}
+else if(a==='addex'){const n=$('exN').value.trim();if(!n)return;if(c.ex.some(x=>x.n.toLowerCase()===n.toLowerCase())){toast('Already added');return}c.ex.push({id:'x'+S.nid++,n});persist();renderSet()}
+else if(a==='delex'){c.ex=c.ex.filter(x=>x.id!==b.dataset.id);persist();renderSet()}
+else if(a==='export'){const u=URL.createObjectURL(new Blob([JSON.stringify({app:'Health Tracker',state:S},null,2)],{type:'application/json'})),l=document.createElement('a');l.href=u;l.download='health-tracker-backup-'+today()+'.json';l.click();URL.revokeObjectURL(u);toast('Backup downloaded')}
+else if(a==='import')$('file').click();
+else if(a==='reset'){if(confirm('Delete ALL entries and settings from this browser? Download a backup first if unsure.')){S=JSON.parse(JSON.stringify(DEF));persist();renderSet();toast('Reset')}}});
+
+document.addEventListener('input',e=>{const t=e.target,f=t.dataset.f;if(!f||t.type==='checkbox')return;setDay(f,t.type==='number'?parseFloat(t.value):t.value);chips()});
+document.addEventListener('change',e=>{const t=e.target;
+if(t.dataset.f&&t.type==='checkbox'){setDay(t.dataset.f,t.checked)}
+else if(t.dataset.sup){const d=dayOf(date),l=(d.sup||[]).slice(),id=+t.dataset.sup,i=l.indexOf(id);t.checked&&i<0?l.push(id):l.splice(i,1);setDay('sup',l)}
+else if(t.dataset.cfg){const k=t.dataset.cfg;S.cfg[k]=k==='sleepT'?(parseFloat(t.value)||7):(t.checked?1:0);persist();renderSet()}
+else if(t.dataset.th){const[k,i]=t.dataset.th.split('.'),v=parseFloat(t.value);if(!isNaN(v)){S.cfg[k][+i]=v;persist()}}
+else if(t.id==='dateIn'){if(t.value){date=t.value;renderLog()}}
+else if(t.id==='monIn'){if(t.value){mon=t.value;renderMonth()}}
+else if(t.id==='metric')renderMonth();
+else if(t.id==='file'){const f=t.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result),v=x.state||x;if(!v||typeof v.days!=='object')throw 0;if(!confirm('Restore this backup? Current data will be replaced.'))return;S={...DEF,...v,cfg:{...DEF.cfg,...(v.cfg||{})}};persist();show('set');toast('Backup restored')}catch(err){toast('That is not a valid backup file')}t.value=''};r.readAsText(f)}});
+
+load();draw();
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script></body></html>
